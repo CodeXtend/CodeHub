@@ -1,7 +1,7 @@
 {
   "name": "CodeHub",
   "displayName": "CodeHub",
-  "description": " DevHub is a VS code extension for coding community. A large number of user helps others to fix errors and gain badges.",
+  "description": "DevHub is a VS code extension for the coding community. A large number of users help others to fix errors and gain badges.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.86.0"
@@ -9,13 +9,36 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onView:Codehub-sidebar"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "CodeHub-sidebar-view",
+          "title": "CodeHub",
+          "icon": "logo.svg"
+        }
+      ]
+    },
+    "views": {
+      "CodeHub-sidebar-view": [
+        {
+          "type": "webview",
+          "id": "CodeHub-sidebar",
+          "name": "CodeHub",
+          "icon": "logo.svg",
+          "contextualTitle": "CodeHub"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "CodeHub.helloWorld",
-        "title": "Hello World"
+        "title": "Hello World",
+        "iconPath": "./icon.svg" 
       }
     ]
   },
