@@ -1,8 +1,5 @@
 import * as vscode from "vscode";
 
-import { getNonce } from "./getNonce";
-
-
 export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
   _doc?: vscode.TextDocument;
@@ -61,7 +58,7 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
     );
 
     // Use a nonce to only allow a specific script to be run.
-    const nonce = getNonce();
+    // const nonce = getNonce();
 
     return `<!DOCTYPE html>
 			<html lang="en">
@@ -73,14 +70,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
         -->
         <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${
           webview.cspSource
-        }; script-src 'nonce-${nonce}';">
+        };">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link href="${styleResetUri}" rel="stylesheet">
 				<link href="${styleVSCodeUri}" rel="stylesheet">
         <link href="${styleMainUri}" rel="stylesheet">
 			</head>
       <body>
-				<script nonce="${nonce}" src="${scriptUri}"></script>
+				
 			</body>
 			</html>`;
   }
