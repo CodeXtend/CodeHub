@@ -12,10 +12,38 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "package-explorer",
+          "title": "CodeHub",
+          "icon": "./assets/icons/polygon.svg"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "CodeHub",
+          "name": "CodeHub"
+        }
+      ],
+      "package-explorer": [             
+        {
+          "id": "package-dependencies",   
+          "name": "Dependencies",
+          "type": "tree"
+        },
+        {
+          "id": "package-outline",
+          "name": "Outline"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "CodeHub.helloWorld",
-        "title": "Hello World"
+        "command": "CodeHub.aditya",
+        "title": "aditya"
       }
     ]
   },
